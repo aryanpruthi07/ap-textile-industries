@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | AP Textile Industries</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS Script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0f2240',
+                        'navy-light': '#1a3a6b',
+                        gold: '#c8973d',
+                        'gold-light': '#e0b86a',
+                        cream: '#faf7f2',
+                        charcoal: '#2d3748',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-cream text-charcoal antialiased flex flex-col min-h-screen">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+        <div class="container mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex flex-col leading-none">
+                <span class="text-2xl font-bold tracking-tight text-navy font-serif">AP TEXTILE</span>
+                <span class="text-[11px] font-bold tracking-[0.3em] text-gold uppercase mt-1">Industries</span>
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden text-navy focus:outline-none" aria-label="Toggle Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-navy">
+                <a href="index.html" class="hover:text-gold transition-colors">Home</a>
+                <a href="about.html" class="hover:text-gold transition-colors text-gold">About Us</a>
+                <a href="products.html" class="hover:text-gold transition-colors">Products</a>
+                <a href="contact.html" class="px-5 py-2.5 bg-navy text-white rounded hover:bg-navy-light transition-colors">Contact Us</a>
+            </nav>
+        </div>
+        <!-- Mobile Nav Menu -->
+        <nav id="mobile-menu" class="hidden border-t border-gray-100 bg-white">
+            <div class="container mx-auto px-4 py-4 flex flex-col gap-4 font-semibold text-navy">
+                <a href="index.html" class="hover:text-gold transition-colors">Home</a>
+                <a href="about.html" class="hover:text-gold transition-colors text-gold">About Us</a>
+                <a href="products.html" class="hover:text-gold transition-colors">Products</a>
+                <a href="contact.html" class="inline-block text-center px-5 py-3 bg-navy text-white rounded hover:bg-navy-light">Contact Us</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Page Header -->
+        <section class="gradient-hero text-white py-24 text-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-navy/60 to-navy/90"></div>
+            <div class="relative z-10 container mx-auto px-4">
+                <span class="text-gold text-xs font-bold uppercase tracking-widest">Our Story</span>
+                <h1 class="text-5xl md:text-6xl font-bold mt-3 mb-4 font-serif">About AP Textile</h1>
+                <p class="text-gray-300 max-w-2xl mx-auto text-lg">
+                    Building lasting textile partnerships since 2010, from the heart of Panipat, Haryana.
+                </p>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section class="section-padding bg-cream">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <span class="text-gold text-xs font-bold uppercase tracking-widest">Who We Are</span>
+                        <h2 class="text-4xl font-bold text-navy mt-2 mb-6 font-serif">From a Small Trading House to a Trusted Exporter</h2>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            AP Textile Industries was established in 2010 in Panipat — the city of weavers. We started as a small yarn trading unit, sourcing premium Indian cotton and polyester yarn for local weavers and garment brands.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Over the years, we expanded our portfolio to include satin cord yarn for specialty crafts, and a premium home décor line featuring ultra-soft bath towels and bath mats — all crafted to hospitality-grade standards.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed mb-8">
+                            Today, we serve 200+ businesses across India, with an eye toward export markets in Southeast Asia and the Middle East. Our strength is in the relationships we build — with yarn mills, with buyers, and with the craftspeople who bring fabric to life.
+                        </p>
+                        <a href="contact.html" class="px-6 py-3 bg-navy text-white font-semibold rounded hover:bg-navy-light transition-colors">
+                            Get in Touch
+                        </a>
+                    </div>
+                    <div class="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl">
+                        <video src="https://media.istockphoto.com/id/1353223216/video/sewing-spools-managed-by-a-factory-machine-in-a-close-up.mp4?s=mp4-640x640-is&k=20&c=FTWB4bqr9po-Gj5788ePTqcGEgiUhUo1RVKq7dp-Vxc=" autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover"></video>
+                        <!-- Glassmorphism Watermark Cover -->
+                        <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-20 backdrop-blur-xl bg-navy/20 z-0 flex items-center justify-center border-y border-white/10">
+                            <span class="text-white/40 text-sm tracking-[0.4em] uppercase font-bold">AP Textile Industries</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="py-16 bg-navy">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="text-white">
+                        <div class="text-5xl font-bold text-gold mb-2 font-serif">15+</div>
+                        <div class="text-gray-300 text-sm font-medium">Years of Experience</div>
+                    </div>
+                    <div class="text-white">
+                        <div class="text-5xl font-bold text-gold mb-2 font-serif">200+</div>
+                        <div class="text-gray-300 text-sm font-medium">Satisfied Clients</div>
+                    </div>
+                    <div class="text-white">
+                        <div class="text-5xl font-bold text-gold mb-2 font-serif">50+</div>
+                        <div class="text-gray-300 text-sm font-medium">Product Variants</div>
+                    </div>
+                    <div class="text-white">
+                        <div class="text-5xl font-bold text-gold mb-2 font-serif">10+</div>
+                        <div class="text-gray-300 text-sm font-medium">States Served</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision -->
+        <section class="section-padding bg-white">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="bg-navy text-white p-10 rounded-2xl">
+                        <span class="text-gold text-xs font-bold uppercase tracking-widest">Our Mission</span>
+                        <h3 class="text-2xl font-bold mt-3 mb-4 font-serif">Why We Do What We Do</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            To be the most reliable link in the textile supply chain — delivering excellence through superior quality products, transparent business practices, and a genuine commitment to client success.
+                        </p>
+                    </div>
+                    <div class="bg-cream border border-gray-200 p-10 rounded-2xl">
+                        <span class="text-gold text-xs font-bold uppercase tracking-widest">Our Vision</span>
+                        <h3 class="text-2xl font-bold text-navy mt-3 mb-4 font-serif">Where We Are Headed</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            To expand our presence to 10+ countries by 2030, bringing the finest Indian textiles to global markets while supporting sustainable and ethical sourcing practices.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white">
+        <!-- Shared Footer Content -->
+        <div class="container mx-auto px-4 py-16">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="md:col-span-1">
+                    <div class="mb-6">
+                        <h3 class="text-3xl font-bold tracking-tight text-white font-serif">AP TEXTILE</h3>
+                        <p class="text-[11px] font-bold tracking-[0.3em] text-gold uppercase mt-1">Industries</p>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Trusted wholesaler & supplier of premium yarn and home décor products. Serving businesses since 2010.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gold uppercase tracking-wider text-xs mb-4">Our Products</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="products.html" class="hover:text-white transition-colors">Cotton Yarn</a></li>
+                        <li><a href="products.html" class="hover:text-white transition-colors">Polyester Yarn</a></li>
+                        <li><a href="products.html" class="hover:text-white transition-colors">Satin Cord Yarn</a></li>
+                        <li><a href="products.html" class="hover:text-white transition-colors">Bath Towels</a></li>
+                        <li><a href="products.html" class="hover:text-white transition-colors">Bath Mats</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gold uppercase tracking-wider text-xs mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gold uppercase tracking-wider text-xs mb-4">Contact Us</h4>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li class="flex items-start gap-2">
+                            <span class="text-gold mt-0.5">📍</span>
+                            <span>Aggarwal Market, Gali No. 2<br>Gohana Road, Panipat - 132103</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-gold">📞</span>
+                            <a href="tel:+917419300657" class="hover:text-white transition-colors">+91-7419300657</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-gold">✉️</span>
+                            <a href="mailto:aptextileindustries1@gmail.com" class="hover:text-white transition-colors">aptextileindustries1@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-white/10 py-4">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 gap-2">
+                <p>© 2025 AP Textile Industries. All rights reserved.</p>
+                <p>Panipat, Haryana · India</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/917419300657" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 flex items-center justify-center cursor-pointer" aria-label="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+    
+    <script src="script.js"></script>
+</body>
+</html>
