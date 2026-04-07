@@ -1,6 +1,24 @@
-/* Custom Styles for AP Textile Industries */
+/* ─────────────────────────────────────────────
+   AP Textile Industries — style.css
+   Dynamic transitions & animation system
+───────────────────────────────────────────── */
 
-/* Section Padding Utility */
+/* ── Custom Scrollbar ── */
+:root {
+    --gold: #c8973d;
+    --navy: #0f2240;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1ede6; }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #b07f2c; }
+
+/* ── Section Padding ── */
 .section-padding {
     padding-top: 5rem;
     padding-bottom: 5rem;
@@ -12,23 +30,286 @@
     }
 }
 
-/* Gradient Hero Background */
+/* ── Gradient Hero ── */
 .gradient-hero {
     background: linear-gradient(135deg, #0f2240 0%, #1a3a6b 100%);
 }
 
-/* Card Hover Animation */
+/* ── Card Hover ── */
 .card-hover {
-    transition: all 0.3s ease;
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.35s ease;
+    will-change: transform;
 }
-
 .card-hover:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 24px 40px -8px rgba(15, 34, 64, 0.18),
+                0 8px 16px -4px rgba(200, 151, 61, 0.12);
 }
 
-/* Base resets handled by Tailwind, adding specific image max-width */
+/* ── Image Base ── */
 img {
     max-width: 100%;
     height: auto;
+}
+
+/* ══════════════════════════════════════
+   PAGE TRANSITION OVERLAY
+══════════════════════════════════════ */
+#page-transition {
+    position: fixed;
+    inset: 0;
+    background: var(--navy);
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+#page-transition.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ══════════════════════════════════════
+   SCROLL REVEAL SYSTEM
+══════════════════════════════════════ */
+
+/* Base hidden state — applied by JS */
+[data-reveal] {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition-duration: 0.75s;
+    will-change: opacity, transform;
+}
+
+[data-reveal="up"]    { transform: translateY(48px); }
+[data-reveal="down"]  { transform: translateY(-32px); }
+[data-reveal="left"]  { transform: translateX(-48px); }
+[data-reveal="right"] { transform: translateX(48px); }
+[data-reveal="fade"]  { transform: scale(0.96); }
+[data-reveal="zoom"]  { transform: scale(0.88); }
+
+/* Revealed state */
+[data-reveal].revealed {
+    opacity: 1;
+    transform: none;
+}
+
+/* Stagger delays for sibling groups */
+[data-reveal][data-delay="1"] { transition-delay: 0.1s; }
+[data-reveal][data-delay="2"] { transition-delay: 0.2s; }
+[data-reveal][data-delay="3"] { transition-delay: 0.3s; }
+[data-reveal][data-delay="4"] { transition-delay: 0.4s; }
+[data-reveal][data-delay="5"] { transition-delay: 0.5s; }
+[data-reveal][data-delay="6"] { transition-delay: 0.6s; }
+
+/* ══════════════════════════════════════
+   NAVBAR SCROLL EFFECT
+══════════════════════════════════════ */
+header {
+    transition: height 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+header.scrolled {
+    box-shadow: 0 4px 24px rgba(15, 34, 64, 0.12);
+    background-color: rgba(255,255,255,0.98) !important;
+}
+
+/* Nav link underline */
+nav a.nav-link {
+    position: relative;
+}
+nav a.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+}
+nav a.nav-link:hover::after,
+nav a.nav-link.active::after {
+    width: 100%;
+}
+
+/* ══════════════════════════════════════
+   HERO ENTRANCE ANIMATIONS
+══════════════════════════════════════ */
+@keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(36px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.hero-animate-1 {
+    opacity: 0;
+    animation: heroFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards;
+}
+.hero-animate-2 {
+    opacity: 0;
+    animation: heroFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.45s forwards;
+}
+.hero-animate-3 {
+    opacity: 0;
+    animation: heroFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.65s forwards;
+}
+.hero-animate-4 {
+    opacity: 0;
+    animation: heroFadeIn 1s ease 0.9s forwards;
+}
+
+/* ══════════════════════════════════════
+   BUTTON EFFECTS
+══════════════════════════════════════ */
+.btn-ripple {
+    position: relative;
+    overflow: hidden;
+}
+.btn-ripple .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    transform: scale(0);
+    animation: rippleAnim 0.55s linear;
+    pointer-events: none;
+}
+@keyframes rippleAnim {
+    to { transform: scale(4); opacity: 0; }
+}
+
+/* ══════════════════════════════════════
+   BACK TO TOP BUTTON
+══════════════════════════════════════ */
+#back-to-top {
+    position: fixed;
+    bottom: 6rem;
+    right: 1.5rem;
+    z-index: 49;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(15,34,64,0.25);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+    pointer-events: none;
+}
+#back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+#back-to-top:hover {
+    background: var(--gold);
+}
+#back-to-top svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ══════════════════════════════════════
+   STATS BAR PULSE
+══════════════════════════════════════ */
+.stat-counter {
+    display: inline-block;
+    transition: transform 0.15s ease;
+}
+
+/* ══════════════════════════════════════
+   FOOTER LINK HOVER
+══════════════════════════════════════ */
+footer a {
+    transition: color 0.25s ease, padding-left 0.25s ease;
+}
+footer a:hover {
+    padding-left: 4px;
+}
+
+/* ══════════════════════════════════════
+   FORM INPUT FOCUS
+══════════════════════════════════════ */
+input, select, textarea {
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease !important;
+}
+input:focus, select:focus, textarea:focus {
+    transform: translateY(-1px);
+}
+
+/* ══════════════════════════════════════
+   IMAGE ZOOM ON HOVER (Product Cards)
+══════════════════════════════════════ */
+.img-zoom-wrap {
+    overflow: hidden;
+}
+.img-zoom-wrap img {
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.img-zoom-wrap:hover img {
+    transform: scale(1.08);
+}
+
+/* ══════════════════════════════════════
+   GOLD SHIMMER (Decorative)
+══════════════════════════════════════ */
+@keyframes shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+.gold-shimmer {
+    background: linear-gradient(90deg, #c8973d 0%, #f0cf7a 50%, #c8973d 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+}
+
+/* ══════════════════════════════════════
+   PAGE LOAD FADE
+══════════════════════════════════════ */
+body {
+    animation: bodyFadeIn 0.5s ease forwards;
+}
+@keyframes bodyFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* ══════════════════════════════════════
+   WHATSAPP BUTTON PULSE
+══════════════════════════════════════ */
+@keyframes waPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    70%  { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+a[href*="wa.me"] {
+    animation: waPulse 2s ease infinite;
+}
+
+/* ══════════════════════════════════════
+   MOBILE MENU SLIDE
+══════════════════════════════════════ */
+#mobile-menu {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.3s ease;
+    opacity: 0;
+}
+#mobile-menu.open {
+    max-height: 300px;
+    opacity: 1;
 }
