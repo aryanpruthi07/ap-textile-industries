@@ -249,7 +249,9 @@
             if (product) body += `Product of Interest: ${product}\n`;
             body += `\nMessage:\n${msg}\n`;
 
-            window.location.href = `mailto:aptextileindustries1@gmail.com?subject=${subject}&body=${encodeURIComponent(body)}`;
+            // Open Gmail compose in a new tab (works on all platforms — bypasses Apple Mail)
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=aptextileindustries1@gmail.com&su=${subject}&body=${encodeURIComponent(body)}`;
+            window.open(gmailUrl, '_blank');
 
             formContainer.classList.add('hidden');
             successMessage.classList.remove('hidden');
