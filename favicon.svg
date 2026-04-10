@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" shape-rendering="crispEdges">
+  <!-- Navy rounded square background -->
+  <rect width="64" height="64" rx="14" fill="#0f2240"/>
+  <!-- Gold "AP" bold serif text centered -->
+  <text
+    x="32"
+    y="44"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="30"
+    font-weight="700"
+    fill="#c8973d"
+    text-anchor="middle"
+    letter-spacing="-1"
+  >AP</text>
+</svg>
